@@ -1,3 +1,5 @@
-<h1>
-  {{title}}
-</h1>
+<form novalidate (ngSubmit)="onSubmit(contactinfo)" [formGroup]="contactinfo">
+  <input type="text" placeholder="name" formControlName="name">
+  <input type="text" placeholder="mobile no" formControlName="contactno">
+  <button type="submit">add</button>
+</form>
