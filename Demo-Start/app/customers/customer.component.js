@@ -21,7 +21,7 @@ var CustomerComponent = (function () {
         //form builder
         this.customerForm = this.fb.group({
             firstName: '',
-            lastName: '',
+            lastName: { value: 'n/a', disabled: true },
             email: '',
             sendCatalog: true
         });
