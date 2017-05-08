@@ -13,6 +13,6 @@ import {ProductListComponent} from './products/product-list.component';
   declarations: [ 
     AppComponent,
     ProductListComponent],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ] // defines the root component of our application which its selector is the one that included in index.html
 })
 export class AppModule { }

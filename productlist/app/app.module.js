@@ -25,7 +25,7 @@ AppModule = __decorate([
             app_component_1.AppComponent,
             product_list_component_1.ProductListComponent
         ],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent] // defines the root component of our application which its selector is the one that included in index.html
     })
 ], AppModule);
 exports.AppModule = AppModule;
