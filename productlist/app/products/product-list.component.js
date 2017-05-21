@@ -20,7 +20,14 @@ var ProductListComponent = (function () {
         this.listFilter = 'cart';
     }
     ProductListComponent.prototype.ngOnInit = function () {
-        this.products = this._productService.getProducts();
+        var _this = this;
+        ///////10-because the service now return observables we can not assign the result to our product directly
+        ///////rather we subscribe to the returned observable
+        ///////when the obeservables emmets  the data  we set our products property to the returned array of products
+        ///////11- but things not always go right as we excpect so we will add error handle msg 
+        ///////12- <any>error this is a casting operator, we are casting the error returned from the observable to the any datatype
+        this._productService.getProducts()
+            .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
     };
     ProductListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
