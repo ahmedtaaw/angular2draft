@@ -4,37 +4,37 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {AngularFireModule} from 'angularfire2';
+// New imports to update based on AngularFire2 version 4
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { EmailComponent } from './email/email.component';
-import { SignupComponent } from './signup/signup.component';
-import { MembersComponent } from './members/members.component';
+
+
 
 
 //to save the information in the fire properties (interface)
 export const firebaseConfig={
-  apiKey:'',
-  authDomain:'',
-  databaseURL:'',
-  storageBucket:'',
-  messagingSenderId:''
+  apiKey: "AIzaSyDm1DJFL5FPlS5IdTwx5wpMvK2XIVKtHPM",
+    authDomain: "authsystem-71e83.firebaseapp.com",
+    databaseURL: "https://authsystem-71e83.firebaseio.com",
+    projectId: "authsystem-71e83",
+    storageBucket: "authsystem-71e83.appspot.com",
+    messagingSenderId: "749781072010"
 }
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    EmailComponent,
-    SignupComponent,
-    MembersComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
