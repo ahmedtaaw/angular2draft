@@ -10,7 +10,7 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-   user: Observable<firebase.User>;
+  user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
   msgVal: string = '';
 
@@ -26,14 +26,14 @@ export class AppComponent {
   }
   login() {
     this.afAuth.auth.signInAnonymously();
-}
+  }
 
-logout() {
+  logout() {
     this.afAuth.auth.signOut();
-}
+  }
 
-Send(desc: string) {
-    this.items.push({ message: desc});
+  Send(desc: string) {
+    this.items.push({ message: desc });
     this.msgVal = '';
-}
+  }
 }
