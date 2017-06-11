@@ -1,0 +1,34 @@
+<table *ngIf="postComments && postComments.length">
+  <thead>
+    <tr>
+      <th>
+        Post ID
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        Comment
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pcomments of postComments">
+      <td>
+        {{pcomments.postId}}
+      </td>
+      <td>
+        {{pcomments.name}}
+      </td>
+      <td>
+        {{pcomments.email}}
+      </td>
+      <td>
+        {{pcomments.body}}
+      </td>
+    </tr>
+  </tbody>
+</table>
