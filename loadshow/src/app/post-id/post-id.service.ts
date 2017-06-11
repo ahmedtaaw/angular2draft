@@ -1,37 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Iposts } from './post-id';
+
+import {Http,Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+
+
 @Injectable()
 export class postService {
-  getposts(): Iposts[] {
-    return [
-      {
-        "postId": 1,
-        "id": 1,
-        "name": "id labore ex et quam laborum",
-        "email": "Eliseo@gardner.biz",
-        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
-      },
-      {
-        "postId": 1,
-        "id": 2,
-        "name": "quo vero reiciendis velit similique earum",
-        "email": "Jayne_Kuhic@sydney.com",
-        "body": "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
-      },
-      {
-        "postId": 1,
-        "id": 3,
-        "name": "odio adipisci rerum aut animi",
-        "email": "Nikita@garfield.biz",
-        "body": "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
-      },
-      {
-        "postId": 1,
-        "id": 4,
-        "name": "alias odio sit",
-        "email": "Lew@alysha.tv",
-        "body": "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
-      }
-    ]
+ private _postsURL='http://jsonplaceholder.typicode.com/comments';
+  constructor(private _http:Http){}
+
+  getposts(): Observable <Iposts[]> {
+    return this._http.get(this._postsURL).map((respone:Response) => <Iposts[]> respone.json())
+    .do(data => console.log('All: '+JSON.stringify(data)))
+    .catch(this.handleError);
+  }
+  private handleError(error:Response){
+    console.log(error);
+    return Observable.throw(error.json().error || 'server Error');
   }
 }

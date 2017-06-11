@@ -8,10 +8,13 @@ import {Iposts} from './post-id';
 })
 export class PostIdComponent implements OnInit {
   posts:Iposts[];
+  errorMessage:string;
   constructor(private _postService:postService) { }
 
   ngOnInit() {
-    this.posts=this._postService.getposts();
+    this._postService.getposts()
+    .subscribe(posts=>this.posts=posts,
+    error=>this.errorMessage=<any>error)
   }
 
 }
