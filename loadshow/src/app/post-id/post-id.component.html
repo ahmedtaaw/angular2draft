@@ -5,38 +5,38 @@
   <thead>
     <tr>
       <th>
-        Post ID
+        albumId
       </th>
       <th>
         ID
       </th>
       <th>
-        Name
+        title
       </th>
       <th>
-        Email
+        url
       </th>
       <th>
-        Comment
+        thumbnailUrl
       </th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let pcomments of posts">
       <td>
-        {{pcomments.postId}}
+        {{pcomments.albumId}}
       </td>
       <td>
         {{pcomments.id}}
       </td>
       <td>
-        {{pcomments.name}}
+        {{pcomments.title}}
       </td>
       <td>
-        {{pcomments.email}}
+        <img src="{{pcomments.url}}">
       </td>
       <td>
-        {{pcomments.body}}
+        <img src="{{pcomments.thumbnailUrl}}">
       </td>
     </tr>
   </tbody>

@@ -1,7 +1,7 @@
 export interface Iposts{
-    postId:number;
+    albumId:number;
     id:number;
-    name:string;
-    email:string;
-    body:string;
+    title:string;
+    url:string;
+    thumbnailUrl:string;
 }

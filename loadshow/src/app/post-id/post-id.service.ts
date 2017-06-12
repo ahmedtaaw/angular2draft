@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class postService {
- private _postsURL='http://jsonplaceholder.typicode.com/comments';
+ private _postsURL='http://jsonplaceholder.typicode.com/photos';
   constructor(private _http:Http){}
 
   getposts(): Observable <Iposts[]> {
